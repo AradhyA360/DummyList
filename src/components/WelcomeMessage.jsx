@@ -1,7 +1,11 @@
 import React from "react";
 
 const WelcomeMessage = () => {
-  return <div>Enjoy your day :) </div>;
+  return (
+    <div>
+      <h3>Enjoy your day :) </h3>
+    </div>
+  );
 };
 
 export default WelcomeMessage;

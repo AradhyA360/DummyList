@@ -1,16 +1,26 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 
 const AddTodoItem = ({ onNewItem }) => {
-  const todoNameElement = useRef();
-  const todoDateElement = useRef();
+  const [todoName, setTodoName] = useState("");
+  const [todoDate, setTodoDate] = useState("");
+
+  const handleNameChange = (event) => {
+    setTodoName(event.target.value);
+  };
+
+  const handleDateChange = (event) => {
+    setTodoDate(event.target.value);
+  };
 
   const handleAddButtonClicked = (event) => {
     event.preventDefault();
-    const todoName = (todoNameElement.current.value = "");
-    const todoDate = (todoDateElement.current.value = "");
-    todoNameElement.current.value = "";
-    todoDateElement.current.value = "";
+    if (todoName.trim() === "") {
+      alert("Please enter a task name.");
+      return;
+    }
     onNewItem(todoName, todoDate);
+    setTodoName("");
+    setTodoDate("");
   };
 
   return (
@@ -20,15 +30,16 @@ const AddTodoItem = ({ onNewItem }) => {
           <div className="col">
             <input
               type="text"
-              ref={todoNameElement}
+              value={todoName}
+              onChange={handleNameChange}
               placeholder="Enter your task here"
             />
           </div>
           <div className="col">
-            <input type="date" ref={todoDateElement} />
+            <input type="date" value={todoDate} onChange={handleDateChange} />
           </div>
           <div className="col">
-            <input type="button" value="Add" />
+            <input type="button" value="Add" onClick={handleAddButtonClicked} />
           </div>
         </form>
       </div>
