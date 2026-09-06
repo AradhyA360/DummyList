@@ -13,7 +13,7 @@ const TodoItem = ({ item, onDeleteClick }) => {
           <input
             type="date"
             className="form-control"
-            value={item.date}
+            value={item.dueDate}
             readOnly
           />
         </div>
