@@ -18,6 +18,10 @@ const AddTodoItem = ({ onNewItem }) => {
       alert("Please enter a task name.");
       return;
     }
+    if (todoDate.trim() === "") {
+      alert("Please select a due date.");
+      return;
+    }
     onNewItem(todoName, todoDate);
     setTodoName("");
     setTodoDate("");

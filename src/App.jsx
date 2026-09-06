@@ -9,18 +9,6 @@ import { useState } from "react";
 function App() {
   const [todoItems, setTodoItems] = useState([]);
 
-  // const handleAddItem = (itemName, itemDueDate) => {
-  //   setTodoItems((currValue) => [
-  //     ...currValue,
-  //     { name: itemName, dueDate: itemDueDate },
-  //   ]);
-  // };
-
-  // const handleDeleteItem = (todoItemName) => {
-  //   const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
-  //   setTodoItems(newTodoItems);
-  // };
-
   const handleAddItem = (itemName, itemDueDate) => {
     setTodoItems((currValue) => [
       ...currValue,
